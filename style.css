@@ -1,0 +1,199 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+header {
+    background-color: #0b192c;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cart {
+    background-color: #1e2a38;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+}
+
+.hero-banner {
+    background-color: #152c4e;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+main {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #0b192c;
+    margin-bottom: 40px;
+}
+
+.products-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 240px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eef2f5;
+    position: relative;
+}
+
+.product-img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.price {
+    color: #152c4e;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.add-to-cart {
+    background-color: #0b192c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-tailor {
+    background-color: white;
+    color: #0b192c;
+    border: 2px solid #0b192c;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #c0392b;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+/* النوافذ المنبثقة */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 25, 44, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group-row { display: flex; gap: 15px; margin-bottom: 15px; }
+.form-group-row div { flex: 1; }
+
+label { display: block; margin-bottom: 5px; font-weight: bold; color: #152c4e; }
+input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; background-color: white;}
+
+.btn-submit-tailor {
+    background-color: #0b192c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* تواصل معنا */
+.contact-section { background-color: #ffffff; padding: 60px 20px; }
+.contact-container { display: flex; max-width: 1000px; margin: 0 auto; gap: 40px; flex-wrap: wrap; }
+.contact-info, .contact-map-info { flex: 1; min-width: 300px; background-color: #f4f6f9; padding: 30px; border-radius: 12px; }
+.contact-buttons { display: flex; flex-direction: column; gap: 15px; }
+.btn-contact { display: block; text-align: center; padding: 14px; border-radius: 8px; text-decoration: none; color: white; font-weight: bold; }
+.whatsapp { background-color: #25D366; }
+.phone { background-color: #0b192c; }
+.instagram { background-color: #E1306C; }
+.map-placeholder { background-color: #e1e8f0; height: 120px; border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #152c4e; margin-top: 15px; border: 2px dashed #152c4e;}
+footer { background-color: #0b192c; color: white; text-align: center; padding: 20px; }

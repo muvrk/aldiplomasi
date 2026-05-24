@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الدبلوماسي | للمستلزمات الرجالية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">👔 متجر الدبلوماسي</div>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">تفصيل الدشاديش</a></li>
+                <li><a href="#">الغتر والأشمغة</a></li>
+                <li><a href="#">النظارات</a></li>
+            </ul>
+        </nav>
+        <div class="cart" id="cartBtn">🛒 السلة (0)</div>
+    </header>
+
+    <!-- البانر الترحيبي -->
+    <section class="hero-banner">
+        <h1>الأناقة الرجالية الفاخرة للرجل الدبلوماسي</h1>
+        <p>تفصيل دشاديش بأجود الأقمشة، غتر فاخرة، وإكسسوارات تكتمل بها هيبتك.</p>
+    </section>
+
+    <!-- قسم المنتجات -->
+    <main>
+        <h2 class="section-title">أحدث المجموعات</h2>
+        <div class="products-grid">
+            
+            <!-- المنتج الأول (تفصيل) -->
+            <div class="product-card">
+                <div class="badge">تفصيل حسب الطلب</div>
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1593032465175-481da7f4016b?auto=format&fit=crop&w=500&q=80" alt="تفصيل دشداشة">
+                </div>
+                <h3>دشداشة عُمانية فاخرة (تفصيل)</h3>
+                <p class="price">25 ر.ع</p>
+                <button class="btn-tailor">احجز موعد تفصيل</button>
+            </div>
+
+            <!-- المنتج الثاني -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=500&q=80" alt="غترة بيضاء">
+                </div>
+                <h3>غترة الدبلوماسي البيضاء (قطن 100%)</h3>
+                <p class="price">12 ر.ع</p>
+                <button class="add-to-cart">أضف للسلة</button>
+            </div>
+
+            <!-- المنتج الثالث -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="نظارة شمسية">
+                </div>
+                <h3>نظارة شمسية كلاسيك فاخرة</h3>
+                <p class="price">18 ر.ع</p>
+                <button class="add-to-cart">أضف للسلة</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- قسم تواصل معنا -->
+    <section class="contact-section">
+        <h2 class="section-title">تواصل مع الدبلوماسي</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>قنوات التواصل المباشر</h3>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/96812345678" target="_blank" class="btn-contact whatsapp">💬 تواصل عبر الواتساب</a>
+                    <a href="tel:+96812345678" class="btn-contact phone">📞 اتصل بنا هاتفياً</a>
+                    <a href="https://instagram.com" target="_blank" class="btn-contact instagram">📸 تابعنا على إنستغرام</a>
+                </div>
+            </div>
+            <div class="contact-map-info">
+                <h3>موقع المحل وأوقات العمل</h3>
+                <p>📍 <strong>العنوان:</strong> سلطنة عُمان - شمال الباطنة</p>
+                <p>⏰ <strong>أوقات العمل:</strong> يومياً على فترتين صباحية ومسائية</p>
+                <div class="map-placeholder">🗺️ [ خريطة جوجل لموقع المحل ]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 متجر الدبلوماسي للمستلزمات الرجالية.</p>
+    </footer>
+
+    <!-- نافذة التفصيل المنبثقة -->
+    <div id="tailorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeTailor">&times;</span>
+            <h2>📏 استمارة تفصيل الدشداشة</h2>
+            <form id="tailorForm">
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" required placeholder="عبدالله ...">
+                </div>
+                <div class="form-group-row">
+                    <div>
+                        <label>الطول (بالإنش):</label>
+                        <input type="number" required placeholder="58">
+                    </div>
+                    <div>
+                        <label>عرض الصدر (بالإنش):</label>
+                        <input type="number" required placeholder="22">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>نوع الخياطة:</label>
+                    <select id="sewingType" required>
+                        <option value="" disabled selected>اختر نوع الخياطة...</option>
+                        <option value="عادية">خياطة عادية</option>
+                        <option value="مع باط">خياطة مع باط</option>
+                        <option value="خنجرية">خياطة خنجرية (موشحة)</option>
+                    </select>
+                </div>
+                <div class="form-group-row">
+                    <div>
+                        <label>نوع الفصمة:</label>
+                        <select id="buttonType" required>
+                            <option value="" disabled selected>اختر النوع...</option>
+                            <option value="العادي">الشكل العادي</option>
+                            <option value="بلاستيك">بلاستيك</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>عدد الخطوط:</label>
+                        <select id="linesCount" required>
+                            <option value="" disabled selected>اختر العدد...</option>
+                            <option value="1">خط واحد</option>
+                            <option value="2">خطين</option>
+                            <option value="3">ثلاثة خطوط</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-tailor">تأكيد وإرسال المقاسات</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة السلة والدفع المنبثقة -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeCart">&times;</span>
+            <h2>🛒 فاتورة المشتريات</h2>
+            <hr style="border: 1px solid #eef2f5; margin-bottom: 20px;">
+            <div id="cartItemsList"></div>
+            <div class="cart-summary" style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin: 20px 0; color: #0b192c;">
+                <span>الإجمالي:</span>
+                <span id="totalPrice">0 ر.ع</span>
+            </div>
+            <form id="paymentForm" style="border-top: 2px dashed #0b192c; padding-top: 20px;">
+                <h3 style="color: #152c4e; margin-bottom: 15px;">💳 تفاصيل الدفع الإلكتروني (محاكاة)</h3>
+                <div class="form-group">
+                    <label>رقم البطاقة (16 رقم):</label>
+                    <input type="text" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" required>
+                </div>
+                <div class="form-group-row">
+                    <div>
+                        <label>تاريخ الانتهاء:</label>
+                        <input type="text" placeholder="MM/YY" required maxlength="5">
+                    </div>
+                    <div>
+                        <label>الرمز (CVV):</label>
+                        <input type="password" placeholder="xxx" required maxlength="3">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-tailor" style="background-color: #2ecc71; margin-top: 10px;">💳 إتمام عملية الدفع الآمن</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
