@@ -8,44 +8,82 @@
 </head>
 <body>
 
-    <!-- الهيدر -->
+    <!-- 1. شريط العداد التنازلي الذكي في أعلى الصفحة -->
+    <div class="top-bar">
+        <span>⏰ ينتهي عرض الشحن المجاني وكوبون الخصم خلال: <strong id="countdown">02:00:00</strong></span>
+    </div>
+
+    <!-- الهيدر المطور مع زر الوضع الليلي والسلة -->
     <header>
         <div class="logo">👔 متجر الدبلوماسي</div>
         <nav>
             <ul>
                 <li><a href="#">الرئيسية</a></li>
-                <li><a href="#">تفصيل الدشاديش</a></li>
-                <li><a href="#">الغتر والأشمغة</a></li>
-                <li><a href="#">النظارات</a></li>
+                <li><a href="#fabrics">الأقمشة</a></li>
+                <li><a href="#shop-section">المتجر</a></li>
             </ul>
         </nav>
-        <div class="cart" id="cartBtn">🛒 السلة (0)</div>
+        <div class="header-controls">
+            <!-- زر التبديل للوضع الليلي -->
+            <button id="darkModeBtn" class="btn-toggle">🌙 الوضع الليلي</button>
+            <div class="cart" id="cartBtn">🛒 السلة (0)</div>
+        </div>
     </header>
 
     <!-- البانر الترحيبي -->
     <section class="hero-banner">
         <h1>الأناقة الرجالية الفاخرة للرجل الدبلوماسي</h1>
-        <p>تفصيل دشاديش بأجود الأقمشة، غتر فاخرة، وإكسسوارات تكتمل بها هيبتك.</p>
+        <p>تفصيل دشاديش بأجود الأقمشة العُمانية، غتر فاخرة، وإكسسوارات تكتمل بها هيبتك.</p>
     </section>
 
-    <!-- قسم المنتجات -->
-    <main>
-        <h2 class="section-title">أحدث المجموعات</h2>
-        <div class="products-grid">
-            
-            <!-- المنتج الأول (تفصيل) -->
-            <div class="product-card">
+    <!-- قسم اختيار الأقمشة -->
+    <section id="fabrics" class="fabrics-section">
+        <h2 class="section-title">🧵 اختر قماشك الفاخر</h2>
+        <div class="fabrics-grid">
+            <div class="fabric-card">
+                <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=400&q=80" alt="قмаш ياباني">
+                <h3>قطن ياباني طبيعي (VIP)</h3>
+                <p>بارد، مريح جداً، ومقاوم للتجعد.</p>
+                <p class="price">+ 15 ر.ع</p>
+                <button class="btn-select-fabric" onclick="selectFabric('قطن ياباني فاخر', 15)">اختر هذا القماش</button>
+            </div>
+            <div class="fabric-card">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80" alt="قماش كوري">
+                <h3>سلك كوري ممتاز</h3>
+                <p>خامة واقفة، تعطي هيبة وممتازة للمناسبات.</p>
+                <p class="price">+ 10 ر.ع</p>
+                <button class="btn-select-fabric" onclick="selectFabric('سلك كوري ممتاز', 10)">اختر هذا القماش</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. قسم المتجر الجديد مع محرك البحث والتصفية الذكية -->
+    <section id="shop-section" class="shop-container">
+        <h2 class="section-title">💼 مستلزمات الأناقة الرجالية</h2>
+        
+        <!-- بار البحث والفلاتر -->
+        <div class="search-filter-bar">
+            <input type="text" id="searchInput" placeholder="🔍 ابحث عن غترة، نظارة، دشداشة..." onkeyup="filterProducts()">
+            <div class="filter-buttons">
+                <button class="btn-filter active" onclick="filterCategory('all')">الكل</button>
+                <button class="btn-filter" onclick="filterCategory('tailor')">تفصيل</button>
+                <button class="btn-filter" onclick="filterCategory('accessories')">إكسسوارات</button>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- منتج 1: تفصيل -->
+            <div class="product-card" data-category="tailor">
                 <div class="badge">تفصيل حسب الطلب</div>
                 <div class="product-img-container">
                     <img src="https://images.unsplash.com/photo-1593032465175-481da7f4016b?auto=format&fit=crop&w=500&q=80" alt="تفصيل دشداشة">
                 </div>
                 <h3>دشداشة عُمانية فاخرة (تفصيل)</h3>
                 <p class="price">25 ر.ع</p>
-                <button class="btn-tailor">احجز موعد تفصيل</button>
+                <button class="btn-tailor">احجز موعد وتفصيل</button>
             </div>
-
-            <!-- المنتج الثاني -->
-            <div class="product-card">
+            <!-- منتج 2: غترة -->
+            <div class="product-card" data-category="accessories">
                 <div class="product-img-container">
                     <img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=500&q=80" alt="غترة بيضاء">
                 </div>
@@ -53,9 +91,8 @@
                 <p class="price">12 ر.ع</p>
                 <button class="add-to-cart">أضف للسلة</button>
             </div>
-
-            <!-- المنتج الثالث -->
-            <div class="product-card">
+            <!-- منتج 3: نظارة -->
+            <div class="product-card" data-category="accessories">
                 <div class="product-img-container">
                     <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="نظارة شمسية">
                 </div>
@@ -63,9 +100,27 @@
                 <p class="price">18 ر.ع</p>
                 <button class="add-to-cart">أضف للسلة</button>
             </div>
-
         </div>
-    </main>
+    </section>
+
+    <!-- قسم آراء وتقييمات الزبائن -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title" style="color: white;">⭐ آراء زبائن الدبلوماسي</h2>
+        <div class="testimonials-container">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"بصراحة خياطة نظيفة جداً وضبطوا مقاس الدشداشة من أول مرة، والأقمشة اليابانية عندهم فخمة وتتحمل."</p>
+                <h4>أحمد البلوشي</h4>
+                <small>شمال الباطنة</small>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"التعامل راقٍ وسريع، النظارات كلاسيكية وجودتها ممتازة، وميزة حجز موعد التفصيل أراحتني كثيراً."</p>
+                <h4>سلطان المعمري</h4>
+                <small>مسقط</small>
+            </div>
+        </div>
+    </section>
 
     <!-- قسم تواصل معنا -->
     <section class="contact-section">
@@ -76,14 +131,12 @@
                 <div class="contact-buttons">
                     <a href="https://wa.me/96812345678" target="_blank" class="btn-contact whatsapp">💬 تواصل عبر الواتساب</a>
                     <a href="tel:+96812345678" class="btn-contact phone">📞 اتصل بنا هاتفياً</a>
-                    <a href="https://instagram.com" target="_blank" class="btn-contact instagram">📸 تابعنا على إنستغرام</a>
                 </div>
             </div>
             <div class="contact-map-info">
                 <h3>موقع المحل وأوقات العمل</h3>
                 <p>📍 <strong>العنوان:</strong> سلطنة عُمان - شمال الباطنة</p>
-                <p>⏰ <strong>أوقات العمل:</strong> يومياً على فترتين صباحية ومسائية</p>
-                <div class="map-placeholder">🗺️ [ خريطة جوجل لموقع المحل ]</div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115456.91136657805!2d56.6343513!3d24.9654134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8ea36ff934e6f3%3A0x6338fb06e1ef6d0e!2sAl%20Batinah%20North%20Governorate!5e0!3m2!1sen!2som!4v1716600000000!5m2!1sen!2som" width="100%" height="180" style="border:0; border-radius: 8px; margin-top: 15px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -93,85 +146,61 @@
         <p>جميع الحقوق محفوظة © 2026 متجر الدبلوماسي للمستلزمات الرجالية.</p>
     </footer>
 
-    <!-- نافذة التفصيل المنبثقة -->
+    <!-- 3. عنصر الإشعارات الحية المنبثقة (Toast Notification) -->
+    <div id="toastNotification" class="toast"></div>
+
+    <!-- نافذة التفصيل -->
     <div id="tailorModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeTailor">&times;</span>
             <h2>📏 استمارة تفصيل الدشداشة</h2>
+            <p id="selectedFabricNotice" style="color: #c0392b; font-weight: bold; margin-bottom: 15px;">القماش المختار: عادي (مشمول في السعر الأصلي)</p>
             <form id="tailorForm">
-                <div class="form-group">
-                    <label>الاسم الكامل:</label>
-                    <input type="text" required placeholder="عبدالله ...">
-                </div>
+                <div class="form-group"><label>الاسم الكامل:</label><input type="text" required placeholder="عبدالله ..."></div>
                 <div class="form-group-row">
-                    <div>
-                        <label>الطول (بالإنش):</label>
-                        <input type="number" required placeholder="58">
-                    </div>
-                    <div>
-                        <label>عرض الصدر (بالإنش):</label>
-                        <input type="number" required placeholder="22">
-                    </div>
+                    <div><label>الطول (بالإنش):</label><input type="number" required placeholder="58"></div>
+                    <div><label>عرض الصدر (بالإنش):</label><input type="number" required placeholder="22"></div>
                 </div>
                 <div class="form-group">
                     <label>نوع الخياطة:</label>
                     <select id="sewingType" required>
-                        <option value="" disabled selected>اختر نوع الخياطة...</option>
                         <option value="عادية">خياطة عادية</option>
                         <option value="مع باط">خياطة مع باط</option>
                         <option value="خنجرية">خياطة خنجرية (موشحة)</option>
                     </select>
                 </div>
-                <div class="form-group-row">
-                    <div>
-                        <label>نوع الفصمة:</label>
-                        <select id="buttonType" required>
-                            <option value="" disabled selected>اختر النوع...</option>
-                            <option value="العادي">الشكل العادي</option>
-                            <option value="بلاستيك">بلاستيك</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>عدد الخطوط:</label>
-                        <select id="linesCount" required>
-                            <option value="" disabled selected>اختر العدد...</option>
-                            <option value="1">خط واحد</option>
-                            <option value="2">خطين</option>
-                            <option value="3">ثلاثة خطوط</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit-tailor">تأكيد وإرسال المقاسات</button>
+                <button type="submit" class="btn-submit-tailor">تأكيد وإرسال المقاسات لسلتك</button>
             </form>
         </div>
     </div>
 
-    <!-- نافذة السلة والدفع المنبثقة -->
+    <!-- نافذة السلة والدفع المحدثة كلياً بأزرار التحكم بالكمية والكوبون -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeCart">&times;</span>
             <h2>🛒 فاتورة المشتريات</h2>
             <hr style="border: 1px solid #eef2f5; margin-bottom: 20px;">
+            
+            <!-- قائمة المشتريات التفاعلية بتظهر هنا بالـ JS -->
             <div id="cartItemsList"></div>
-            <div class="cart-summary" style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin: 20px 0; color: #0b192c;">
-                <span>الإجمالي:</span>
+            
+            <div class="promo-code-container" style="margin: 15px 0; display: flex; gap: 10px;">
+                <input type="text" id="couponInput" placeholder="أدخل كود الخصم (OMAN2026)" style="padding: 8px; flex: 1;">
+                <button type="button" onclick="applyCoupon()" style="background-color: #152c4e; color: white; border: none; padding: 0 15px; border-radius: 6px; cursor: pointer; font-weight: bold;">تطبيق</button>
+            </div>
+            <p id="couponMessage" style="font-size: 0.85rem; margin: 0 0 10px 0; font-weight: bold;"></p>
+
+            <div class="cart-summary" style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; margin: 20px 0; color: #0b192c; border-top: 1px solid #eee; padding-top: 10px;">
+                <span>الإجمالي النهائي:</span>
                 <span id="totalPrice">0 ر.ع</span>
             </div>
+
             <form id="paymentForm" style="border-top: 2px dashed #0b192c; padding-top: 20px;">
-                <h3 style="color: #152c4e; margin-bottom: 15px;">💳 تفاصيل الدفع الإلكتروني (محاكاة)</h3>
-                <div class="form-group">
-                    <label>رقم البطاقة (16 رقم):</label>
-                    <input type="text" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" required>
-                </div>
+                <h3 style="color: #152c4e; margin-bottom: 15px;">💳 تفاصيل الدفع الإلكتروني</h3>
+                <div class="form-group"><label>رقم البطاقة (16 رقم):</label><input type="text" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" required></div>
                 <div class="form-group-row">
-                    <div>
-                        <label>تاريخ الانتهاء:</label>
-                        <input type="text" placeholder="MM/YY" required maxlength="5">
-                    </div>
-                    <div>
-                        <label>الرمز (CVV):</label>
-                        <input type="password" placeholder="xxx" required maxlength="3">
-                    </div>
+                    <div><label>تاريخ الانتهاء:</label><input type="text" placeholder="MM/YY" required maxlength="5"></div>
+                    <div><label>الرمز (CVV):</label><input type="password" placeholder="xxx" required maxlength="3"></div>
                 </div>
                 <button type="submit" class="btn-submit-tailor" style="background-color: #2ecc71; margin-top: 10px;">💳 إتمام عملية الدفع الآمن</button>
             </form>
